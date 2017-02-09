@@ -1,0 +1,11 @@
+id_rsa
+id_dsa
+*.pyc
+*.o
+.DS_Store
+*.swp
+a.out
+in.txt
+.ropeproject
+bin/*
+.ssh/

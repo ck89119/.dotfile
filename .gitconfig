@@ -1,0 +1,9 @@
+[user]
+	email = ck89119@gmail.com
+	name = ck89119
+[color]
+	ui = true
+[core]
+	excludesfile = ~/.dotfile/.gitignore.global
+[credential]
+	helper = osxkeychain
