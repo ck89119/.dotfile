@@ -84,8 +84,6 @@ source $ZSH/oh-my-zsh.sh
 
 # default
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-# latex
-export PATH="/usr/local/texlive/2014/bin/universal-darwin":$PATH
 # go
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/Develop/go

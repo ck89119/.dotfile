@@ -6,6 +6,7 @@ id_dsa
 *.swp
 a.out
 in.txt
+out.txt
 .ropeproject
 bin/*
 .ssh/
