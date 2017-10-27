@@ -2,10 +2,6 @@
 
 cd ~
 
-# link ssh
-[ -e ".ssh" ] && rm -rf .ssh
-ln -s .dotfile/.ssh .ssh
-
 # link aria2
 [ -e ".aria2" ] && rm -rf .aria2
 ln -s .dotfile/.aria2 .aria2

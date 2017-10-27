@@ -5,8 +5,10 @@ id_dsa
 .DS_Store
 *.swp
 a.out
-in.txt
-out.txt
 .ropeproject
 bin/*
 .ssh/
+cscope.in.out
+cscope.out
+cscope.po.out
+
