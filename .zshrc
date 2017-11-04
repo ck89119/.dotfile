@@ -90,6 +90,8 @@ export GOPATH=$HOME/Develop/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 # cpp
 export CPLUS_INCLUDE_PATH="/Users/LoveYY/.dotfile"
+# python
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # export TERM="xterm-256color"
 # export MANPATH="/usr/local/man:$MANPATH"
