@@ -12,3 +12,6 @@ cscope.in.out
 cscope.out
 cscope.po.out
 
+.idea/
+.gradle/
+build/
