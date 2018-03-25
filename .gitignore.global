@@ -15,3 +15,4 @@ cscope.po.out
 .idea/
 .gradle/
 build/
+out/
