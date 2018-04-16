@@ -1,0 +1,35 @@
+" relative number
+set relativenumber
+" ignore case when searching
+set ignorecase
+" yank to the system register (*) by default
+set clipboard=unnamed
+
+" set leader to ,
+let mapleader=" "
+let g:mapleader=" "
+
+" move to the below split
+map <C-J> <C-W>j
+" move to the above split
+map <C-K> <C-W>k
+" move to the left split
+map <C-H> <C-W>h
+" move to the right split
+map <C-L> <C-W>l
+
+" turn off search highlighting
+" nmap <leader>/ :nohl<CR>
+
+" allow multiple indentation/deindentation in visual mode
+vnoremap < <gv
+vnoremap > >gv
+
+" delete spaces at the end of lines
+nnoremap <leader>s :%s/\s\+$//<CR>
+
+" search and highlight current word
+" nmap <leader>h :/<C-R>=expand("<cword>")<CR><CR>
+
+" json format
+nnoremap <leader>j :%!python -m json.tool<CR>
