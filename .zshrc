@@ -114,3 +114,7 @@ export LANG=en_US.UTF-8
 
 # alias emacs=emacsclient
 alias tmux='tmux -2'
+
+# vscode
+export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+

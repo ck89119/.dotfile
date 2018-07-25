@@ -3,7 +3,9 @@ set relativenumber
 " ignore case when searching
 set ignorecase
 " yank to the system register (*) by default
-set clipboard=unnamed
+set clipboard+=unnamed
+" search highlighting
+set hlsearch
 
 " set leader to ,
 let mapleader=" "
@@ -19,17 +21,28 @@ map <C-H> <C-W>h
 map <C-L> <C-W>l
 
 " turn off search highlighting
-" nmap <leader>/ :nohl<CR>
+nmap <leader>/ :nohl<CR>
 
 " allow multiple indentation/deindentation in visual mode
 vnoremap < <gv
 vnoremap > >gv
 
-" delete spaces at the end of lines
-nnoremap <leader>s :%s/\s\+$//<CR>
-
-" search and highlight current word
-" nmap <leader>h :/<C-R>=expand("<cword>")<CR><CR>
-
 " json format
 nnoremap <leader>j :%!python -m json.tool<CR>
+
+" search and highlight current word
+nmap <leader>h :/<C-R>=expand("<cword>")<CR><CR>
+
+" These are to cancel the default behavior of d, D, c, C
+" to put the text they delete in the default register.
+" Note that this means e.g. "ad won't copy the text into
+" register a anymore. You have to explicitly yank it.
+" nnoremap d "_d
+" vnoremap d "_d
+" nnoremap D "_D
+" vnoremap D "_D
+" nnoremap c "_c
+" vnoremap c "_c
+" nnoremap C "_C
+" vnoremap C "_C
+" xnoremap p "_dP

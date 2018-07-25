@@ -5,5 +5,3 @@
 	ui = true
 [core]
 	excludesfile = ~/.dotfile/.gitignore.global
-[credential]
-	helper = osxkeychain
