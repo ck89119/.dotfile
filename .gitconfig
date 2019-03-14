@@ -5,3 +5,5 @@
 	ui = true
 [core]
 	excludesfile = ~/.dotfile/.gitignore.global
+[pager]
+	branch = false

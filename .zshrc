@@ -118,3 +118,4 @@ alias tmux='tmux -2'
 # vscode
 export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
