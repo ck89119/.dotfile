@@ -9,7 +9,8 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 if [ `uname` = "Darwin" ]
 then
-  ZSH_THEME="powerline"
+#  ZSH_THEME="powerline"
+  ZSH_THEME="powerlevel9k/powerlevel9k"
 fi
 
 
@@ -119,3 +120,5 @@ alias tmux='tmux -2'
 export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+# syntax-highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
