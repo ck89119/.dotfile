@@ -94,11 +94,12 @@ export CPLUS_INCLUDE_PATH="/Users/LoveYY/.dotfile"
 # python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
-# export TERM="xterm-256color"
+export TERM="xterm-256color"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -120,5 +121,6 @@ alias tmux='tmux -2'
 export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # syntax-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

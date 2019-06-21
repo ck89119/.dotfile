@@ -10,7 +10,7 @@ ln -s .dotfile/.ideavimrc .ideavimrc
 [ -e ".gitconfig" ] && rm .gitconfig
 ln -s .dotfile/.gitconfig .gitconfig
 
-# install zsh
+# change default shell -> zsh
 chsh -s /bin/zsh
 
 # install oh-my-zsh
@@ -23,6 +23,9 @@ cd .dotfile
 git submodule update --init --recursive
 cd oh-my-zsh-powerline-theme
 ./install_in_omz.sh
+
+# install powerlevel9k
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 # install my vimrc
 wget -O - https://raw.github.com/ck89119/.vim/master/auto-install.sh | sh
