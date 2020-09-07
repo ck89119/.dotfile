@@ -1,9 +1,15 @@
 #!/bin/sh
 
+# install brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+# isntall wget 
+brew install wget
+
 cd ~
 
 # link .ideavimrc
-[ -e ".ideavimrc" ] && rm .
+[ -e ".ideavimrc" ] && rm .ideavimrc
 ln -s .dotfile/.ideavimrc .ideavimrc
 
 # link git configuration
@@ -18,14 +24,11 @@ wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - 
 [ -e ".zshrc" ] && rm .zshrc
 ln -s .dotfile/.zshrc .zshrc 
 
-# install powerline-theme in oh-my-zsh
-cd .dotfile
-git submodule update --init --recursive
-cd oh-my-zsh-powerline-theme
-./install_in_omz.sh
-
 # install powerlevel9k
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+# install zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # install my vimrc
 wget -O - https://raw.github.com/ck89119/.vim/master/auto-install.sh | sh

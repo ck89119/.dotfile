@@ -74,6 +74,7 @@ POWERLINE_GIT_UNMERGED="═"
 plugins=(
   git
   zsh_reload
+  zsh-syntax-highlighting
 )
 if [ `uname` = "Darwin" ]; then
   plugins+=(osx)
@@ -121,6 +122,3 @@ alias tmux='tmux -2'
 export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-# syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
