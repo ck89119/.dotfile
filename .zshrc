@@ -9,26 +9,8 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 if [ `uname` = "Darwin" ]
 then
-#  ZSH_THEME="powerline"
   ZSH_THEME="powerlevel9k/powerlevel9k"
 fi
-
-
-# POWERLINE_RIGHT_B="date replacement"
-# POWERLINE_RIGHT_A="mixed"
-# POWERLINE_DATE_FORMAT="%D{%d-%m}"
-# POWERLINE_HIDE_USER_NAME="true"
-POWERLINE_HIDE_HOST_NAME="true"
-POWERLINE_FULL_CURRENT_PATH="true"
-# POWERLINE_NO_BLANK_LINE="true"
-POWERLINE_GIT_CLEAN="✔"
-POWERLINE_GIT_DIRTY="✘"
-POWERLINE_GIT_ADDED="%F{green}✚%F{black}"
-POWERLINE_GIT_MODIFIED="%F{blue}✹%F{black}"
-POWERLINE_GIT_DELETED="%F{red}✖%F{black}"
-POWERLINE_GIT_UNTRACKED="%F{yellow}✭%F{black}"
-POWERLINE_GIT_RENAMED="➜"
-POWERLINE_GIT_UNMERGED="═"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -91,7 +73,7 @@ export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/Develop/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 # cpp
-export CPLUS_INCLUDE_PATH="/Users/LoveYY/.dotfile"
+export CPLUS_INCLUDE_PATH=$HOME/.dotfile
 # python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 

@@ -3,7 +3,7 @@
 # install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-# isntall wget 
+# install wget 
 brew install wget
 
 cd ~
@@ -15,6 +15,9 @@ ln -s .dotfile/.ideavimrc .ideavimrc
 # link git configuration
 [ -e ".gitconfig" ] && rm .gitconfig
 ln -s .dotfile/.gitconfig .gitconfig
+
+# install zsh
+brew install wget
 
 # change default shell -> zsh
 chsh -s /bin/zsh
