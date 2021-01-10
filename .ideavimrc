@@ -7,13 +7,13 @@ set clipboard+=unnamed
 " search highlighting
 set hlsearch
 
-" set leader to ,
+" set leader to <space>
 let mapleader=" "
 let g:mapleader=" "
 
 " move to the below split
 map <C-J> <C-W>j
-" move to the above split
+" move to the above split"
 map <C-K> <C-W>k
 " move to the left split
 map <C-H> <C-W>h
@@ -31,7 +31,7 @@ vnoremap > >gv
 nnoremap <leader>j :%!python -m json.tool<CR>
 
 " search and highlight current word
-nmap <leader>h :/<C-R>=expand("<cword>")<CR><CR>
+nmap <leader>h *
 
 " These are to cancel the default behavior of d, D, c, C
 " to put the text they delete in the default register.
@@ -45,4 +45,7 @@ nmap <leader>h :/<C-R>=expand("<cword>")<CR><CR>
 " vnoremap c "_c
 " nnoremap C "_C
 " vnoremap C "_C
-" xnoremap p "_dP
+xnoremap p "_dP
+
+set easymotion
+set clipboard+=ideaput

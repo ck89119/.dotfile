@@ -68,14 +68,21 @@ source $ZSH/oh-my-zsh.sh
 
 # default
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+
 # go
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/Develop/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 # cpp
 export CPLUS_INCLUDE_PATH=$HOME/.dotfile
+
 # python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="$PATH:/Users/admin/Library/Python/2.7/bin"
+
+# java
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 export TERM="xterm-256color"
 # export MANPATH="/usr/local/man:$MANPATH"
