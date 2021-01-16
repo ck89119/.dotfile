@@ -1,6 +1,6 @@
 # .dotfile
 
-It's my .dotfile in Unix/Linux System.
+It's my .dotfile for Unix/Linux System.
 
 ## Installation
 
@@ -13,4 +13,8 @@ It's my .dotfile in Unix/Linux System.
 	git clone https://github.com/ck89119/.dotfile.git ~/.dotfile
 	cd ~/.dotfile
 	./install.sh
+
+
+## PS
+还有一些配置在onedrive Dotfiles文件夹下
 
