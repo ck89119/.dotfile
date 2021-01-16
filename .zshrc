@@ -76,6 +76,8 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # cpp
 export CPLUS_INCLUDE_PATH=$HOME/.dotfile
+alias g++='g++ -std=c++11'
+alias clang++='clang++ -std=c++11'
 
 # python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
