@@ -75,7 +75,7 @@ export GOPATH=$HOME/Develop/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # cpp
-export CPLUS_INCLUDE_PATH=$HOME/.dotfile
+export CPLUS_INCLUDE_PATH=$HOME/.dotfile/include
 alias g++='g++ -std=c++11'
 alias clang++='clang++ -std=c++11'
 
