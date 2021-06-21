@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -9,8 +16,10 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 if [ `uname` = "Darwin" ]
 then
-  ZSH_THEME="powerlevel9k/powerlevel9k"
+  ZSH_THEME="powerlevel10k/powerlevel10k"
 fi
+
+POWERLEVEL9K_MODE="awesome-patched"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -57,6 +66,7 @@ plugins=(
   git
   zsh_reload
   zsh-syntax-highlighting
+  zsh-autosuggestions
 )
 if [ `uname` = "Darwin" ]; then
   plugins+=(osx)
@@ -84,7 +94,7 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="$PATH:/Users/admin/Library/Python/2.7/bin"
 
 # java
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_261)
 
 export TERM="xterm-256color"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -113,3 +123,6 @@ alias tmux='tmux -2'
 export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
