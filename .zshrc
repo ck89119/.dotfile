@@ -2,7 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Path to your oh-my-zsh installation.
@@ -13,12 +13,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
-ZSH_THEME="robbyrussell"
-if [ `uname` = "Darwin" ]
-then
-  ZSH_THEME="powerlevel10k/powerlevel10k"
-fi
-
+ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL9K_MODE="awesome-patched"
 
 # Example aliases
@@ -63,13 +58,13 @@ POWERLEVEL9K_MODE="awesome-patched"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-  git
-  zsh_reload
-  zsh-syntax-highlighting
-  zsh-autosuggestions
+    git
+    zsh_reload
+    zsh-syntax-highlighting
+    zsh-autosuggestions
 )
 if [ `uname` = "Darwin" ]; then
-  plugins+=(osx)
+    plugins+=(osx)
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -94,7 +89,9 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="$PATH:/Users/admin/Library/Python/2.7/bin"
 
 # java
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_261)
+if [ `uname` = "Darwin" ]; then
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_261)
+fi
 
 export TERM="xterm-256color"
 # export MANPATH="/usr/local/man:$MANPATH"
