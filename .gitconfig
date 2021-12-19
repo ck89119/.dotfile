@@ -1,9 +1,10 @@
 [user]
-	email = caokai.1109@bytedance.com
-	name = 曹凯
+    email = caokai.1109@bytedance.com
+    name = 曹凯
 [color]
-	ui = true
+    ui = true
 [core]
-	excludesfile = ~/.dotfile/.gitignore.global
+    excludesfile = ~/.dotfile/.gitignore.global
+    editor = vim
 [pager]
-	branch = false
+    branch = false
