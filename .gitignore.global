@@ -17,3 +17,4 @@ cscope.po.out
 build/
 out/
 *.iml
+info.log

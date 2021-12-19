@@ -59,12 +59,10 @@ POWERLEVEL9K_MODE="awesome-patched"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
     git
-    zsh_reload
     zsh-syntax-highlighting
-    zsh-autosuggestions
 )
 if [ `uname` = "Darwin" ]; then
-    plugins+=(osx)
+    plugins+=(macos)
 fi
 
 source $ZSH/oh-my-zsh.sh
