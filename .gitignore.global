@@ -18,3 +18,4 @@ build/
 out/
 *.iml
 info.log
+.vscode/

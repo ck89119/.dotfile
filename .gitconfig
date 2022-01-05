@@ -8,3 +8,4 @@
     editor = vim
 [pager]
     branch = false
+    stash = false
