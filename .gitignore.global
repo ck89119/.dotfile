@@ -1,13 +1,11 @@
-id_rsa
-id_dsa
+.ssh/
 *.pyc
 *.o
 .DS_Store
 *.swp
 a.out
 .ropeproject
-bin/*
-.ssh/
+bin/
 cscope.in.out
 cscope.out
 cscope.po.out
@@ -19,3 +17,4 @@ out/
 *.iml
 info.log
 .vscode/
+nohup.out
