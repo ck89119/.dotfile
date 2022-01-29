@@ -79,8 +79,10 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # cpp
 export CPLUS_INCLUDE_PATH=$HOME/.dotfile/include
-alias g++='g++ -std=c++11'
-alias clang++='clang++ -std=c++11'
+if [ `uname` = "Darwin" ]; then
+    alias g++='clang++'
+    alias clang++='clang++ -std=c++17'
+fi
 
 # python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
