@@ -1,5 +1,5 @@
-" relative number
-set relativenumber
+" number
+set number
 " ignore case when searching
 set ignorecase
 " yank to the system register (*) by default
