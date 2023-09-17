@@ -78,20 +78,22 @@ export GOPATH=$HOME/Develop/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # cpp
-export CPLUS_INCLUDE_PATH=$HOME/.dotfile/include
-if [ `uname` = "Darwin" ]; then
-    alias g++='clang++'
-    alias clang++='clang++ -std=c++17'
-fi
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/.dotfile/include
+# if [ `uname` = "Darwin" ]; then
+#     alias g++='clang++'
+#     alias clang++='clang++ -std=c++17'
+# fi
 
 # python
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PATH="$PATH:/Users/admin/Library/Python/2.7/bin"
+export PATH=$PATH:/usr/local/opt/python/libexec/bin
 
 # java
 if [ `uname` = "Darwin" ]; then
-    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_261)
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_333)
 fi
+
+# rust
+export PATH=$PATH:/Users/LoveYY/.cargo/bin
 
 export TERM="xterm-256color"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -121,9 +123,15 @@ export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/b
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
+# bindkey
 if [ `uname` = "Linux" ]; then
     bindkey "^[[1;3C" forward-word
     bindkey "^[[1;3D" backward-word
+fi
+
+# lsd
+if [ `uname` = "Darwin" ]; then
+    alias ls='lsd'
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
