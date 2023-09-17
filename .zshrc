@@ -121,5 +121,10 @@ export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/b
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
+if [ `uname` = "Linux" ]; then
+    bindkey "^[[1;3C" forward-word
+    bindkey "^[[1;3D" backward-word
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
