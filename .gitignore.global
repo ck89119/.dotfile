@@ -18,3 +18,8 @@ out/
 info.log
 .vscode/
 nohup.out
+compile_commands.json
+.ycm_extra_conf.py
+.gitconfig
+
+mo-data-bak/

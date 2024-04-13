@@ -3,11 +3,18 @@
 # if mac os
 if [ `uname` = "Darwin" ]
 then
-    # install homebrew
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    # set proxy
+    export http_proxy=http://127.0.0.1:1089 https_proxy=http://127.0.0.1:1089
 
-    # install wget
-    brew install wget
+    # install homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    brew install ack
+    brew install bat
+    brew install fd
+    brew install fzf
+    brew install git-delta
+    brew install ripgrep
 fi
 
 cd ~
@@ -30,7 +37,7 @@ ln -s .dotfile/.zshrc .zshrc
 
 # install oh-my-zsh
 [ -e ".oh-my-zsh" ] && rm -rf .oh-my-zsh
-wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # install powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -41,6 +48,5 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # change default shell -> zsh
 chsh -s /bin/zsh
 
-
 # install my vimrc
-wget -O - https://raw.github.com/ck89119/.vim/master/auto-install.sh | sh
+/bin/bash -c "$(curl -fsSL https://raw.github.com/ck89119/.vim/master/auto-install.sh)"

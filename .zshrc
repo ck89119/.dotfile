@@ -69,12 +69,20 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# default
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+# brew
+if [ `arch` = "arm64" ]; then
+    export BREW_PREFIX=/opt/homebrew
+else
+    export BREW_PREFIX=/usr/local
+fi
+
+# default path
+export PATH="$BREW_PREFIX/bin:$BREW_PREFIX/sbin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 # go
-export GOROOT=/usr/local/opt/go/libexec
+export GOROOT=$BREW_PREFIX/opt/go/libexec
 export GOPATH=$HOME/Develop/go
+export GOPROXY=https://goproxy.cn
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # cpp
@@ -84,8 +92,13 @@ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/.dotfile/include
 #     alias clang++='clang++ -std=c++17'
 # fi
 
+# llvm
+export PATH="/opt/homebrew/opt/llvm@16/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm@16/include"
+
 # python
-export PATH=$PATH:/usr/local/opt/python/libexec/bin
+export PATH=$PATH:$BREW_PREFIX/opt/python/libexec/bin
 
 # java
 if [ `uname` = "Darwin" ]; then
@@ -119,7 +132,7 @@ export LC_ALL=en_US.UTF-8
 alias tmux='tmux -2'
 
 # vscode
-export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH=$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
@@ -129,10 +142,14 @@ if [ `uname` = "Linux" ]; then
     bindkey "^[[1;3D" backward-word
 fi
 
-# lsd
-if [ `uname` = "Darwin" ]; then
-    alias ls='lsd'
-fi
+# riscv-gnu-toolchain
+export PATH=$PATH:$BREW_PREFIX/Cellar/riscv-gnu-toolchain/bin
+
+# tidb
+export PATH=/Users/LoveYY/.tiup/bin:$PATH
+
+# bat for man
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

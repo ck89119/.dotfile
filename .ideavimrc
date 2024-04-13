@@ -3,7 +3,7 @@ set number
 " ignore case when searching
 set ignorecase
 " yank to the system register (*) by default
-set clipboard+=unnamed
+set clipboard^=unnamed,unnamedplus,ideaput
 " search highlighting
 set hlsearch
 
@@ -27,9 +27,6 @@ nmap <leader>/ :nohl<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" json format
-nnoremap <leader>j :%!python -m json.tool<CR>
-
 " search and highlight current word
 nmap <leader>h *
 
@@ -47,5 +44,8 @@ nmap <leader>h *
 " vnoremap C "_C
 xnoremap p "_dP
 
+" easymotion plugin
 set easymotion
-set clipboard+=ideaput
+
+" IdeaVimExtension
+set keep-english-in-normal
