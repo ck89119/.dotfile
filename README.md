@@ -9,7 +9,7 @@ It's my .dotfile for Unix/Linux System.
 
 ### or manually:
 
-	git clone https://github.com/ck89119/.dotfile.git ~
+	git clone https://github.com/ck89119/.dotfile.git ~/.dotfile 
 	cd ~/.dotfile
 	./install.sh
 

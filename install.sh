@@ -28,14 +28,10 @@ cd ~
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # install powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# link p10k.zsh configuration
-[ -e ".p10k.zsh" ] && rm .p10k.zsh
-ln -s .dotfile/.p10k.zsh .p10k.zsh
 
 # link .zshrc configuration
 [ -e ".zshrc" ] && rm .zshrc
@@ -48,6 +44,8 @@ ln -s .dotfile/.ideavimrc .ideavimrc
 # link git configuration
 [ -e ".gitconfig" ] && rm .gitconfig
 ln -s .dotfile/.gitconfig .gitconfig
+
+git clone https://github.com/Karmenzind/monaco-nerd-fonts fonts/monaco-nerd-fonts
 
 # install my vimrc
 /bin/bash -c "$(curl -fsSL https://raw.github.com/ck89119/.vim/master/auto-install.sh)"
