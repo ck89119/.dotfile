@@ -102,7 +102,8 @@ export PATH=$PATH:$BREW_PREFIX/opt/python/libexec/bin
 
 # java
 if [ `uname` = "Darwin" ]; then
-    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_333)
+    JAVA_VERSION='1.8.0_333'
+    export JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION)
 fi
 
 # rust
@@ -148,8 +149,11 @@ export PATH=$PATH:$BREW_PREFIX/Cellar/riscv-gnu-toolchain/bin
 # tidb
 export PATH=/Users/LoveYY/.tiup/bin:$PATH
 
-# bat for man
+# tools
+export BAT_THEME="Solarized (dark)"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+alias cat='bat --paging=never'
+alias diff='delta'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

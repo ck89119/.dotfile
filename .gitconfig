@@ -11,6 +11,7 @@
     branch = false
     stash = false
     config = false
+    tag = false
 [interactive]
     diffFilter = delta --color-only
 [delta]

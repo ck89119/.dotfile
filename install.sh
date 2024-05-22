@@ -1,8 +1,7 @@
 #!/bin/sh
 
 # if mac os
-if [ `uname` = "Darwin" ]
-then
+if [ `uname` = "Darwin" ]; then
     # set proxy
     export http_proxy=http://127.0.0.1:1089 https_proxy=http://127.0.0.1:1089
 
@@ -15,17 +14,24 @@ then
     brew install fzf
     brew install git-delta
     brew install ripgrep
+elif [ `uname` = "Linux" ]; then
+    sudo apt-get install zsh
 fi
+
+# change default shell -> zsh
+chsh -s /bin/zsh
 
 cd ~
 
-# link .ideavimrc
-[ -e ".ideavimrc" ] && rm .ideavimrc
-ln -s .dotfile/.ideavimrc .ideavimrc
+# install oh-my-zsh
+[ -e ".oh-my-zsh" ] && rm -rf .oh-my-zsh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# link git configuration
-[ -e ".gitconfig" ] && rm .gitconfig
-ln -s .dotfile/.gitconfig .gitconfig
+# install powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# install zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # link p10k.zsh configuration
 [ -e ".p10k.zsh" ] && rm .p10k.zsh
@@ -35,18 +41,13 @@ ln -s .dotfile/.p10k.zsh .p10k.zsh
 [ -e ".zshrc" ] && rm .zshrc
 ln -s .dotfile/.zshrc .zshrc 
 
-# install oh-my-zsh
-[ -e ".oh-my-zsh" ] && rm -rf .oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# link .ideavimrc
+[ -e ".ideavimrc" ] && rm .ideavimrc
+ln -s .dotfile/.ideavimrc .ideavimrc
 
-# install powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# install zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# change default shell -> zsh
-chsh -s /bin/zsh
+# link git configuration
+[ -e ".gitconfig" ] && rm .gitconfig
+ln -s .dotfile/.gitconfig .gitconfig
 
 # install my vimrc
 /bin/bash -c "$(curl -fsSL https://raw.github.com/ck89119/.vim/master/auto-install.sh)"

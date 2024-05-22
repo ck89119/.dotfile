@@ -5,12 +5,11 @@ It's my .dotfile for Unix/Linux System.
 ## Installation
 
 ### one-step:
-
-	wget -O - https://raw.github.com/ck89119/.dotfile/master/auto-install.sh | sh
+    curl -fsSL https://raw.github.com/ck89119/.dotfile/master/auto-install.sh  
 
 ### or manually:
 
-	git clone https://github.com/ck89119/.dotfile.git ~/.dotfile
+	git clone https://github.com/ck89119/.dotfile.git ~
 	cd ~/.dotfile
 	./install.sh
 
