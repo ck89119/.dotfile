@@ -8,12 +8,13 @@ if [ `uname` = "Darwin" ]; then
     # install homebrew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    brew install ack
     brew install bat
+    brew install eza
     brew install fd
     brew install fzf
     brew install git-delta
     brew install ripgrep
+    brew install tldr
 elif [ `uname` = "Linux" ]; then
     sudo apt-get install zsh
 fi
