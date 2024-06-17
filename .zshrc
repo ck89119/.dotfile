@@ -60,7 +60,7 @@ POWERLEVEL9K_MODE="awesome-patched"
 plugins=(
     git
     zsh-syntax-highlighting
-    zsh-vi-mode
+    # zsh-vi-mode
 )
 if [ `uname` = "Darwin" ]; then
     plugins+=(macos)
@@ -151,7 +151,10 @@ export PATH=$PATH:$BREW_PREFIX/Cellar/riscv-gnu-toolchain/bin
 export PATH=/Users/LoveYY/.tiup/bin:$PATH
 
 # tools
-if [ `uname` = "Linux" ]; then
+if [ `uname` = "Darwin" ]; then
+    BAT='bat'
+    FD='fd'
+else
     alias bat='batcat'
     alias fd='fdfind'
     BAT='batcat'
