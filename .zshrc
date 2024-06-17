@@ -107,7 +107,7 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 # rust
-export PATH=$PATH:/Users/LoveYY/.cargo/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 export TERM="xterm-256color"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -149,8 +149,27 @@ export PATH=$PATH:$BREW_PREFIX/Cellar/riscv-gnu-toolchain/bin
 # tidb
 export PATH=/Users/LoveYY/.tiup/bin:$PATH
 
+# tools
+if [ `uname` = "Linux" ]; then
+    alias bat='batcat'
+    alias fd='fdfind'
+    BAT='batcat'
+    FD='fdfind'
+fi
+alias cat='bat --paging=never'
+alias diff='delta'
+alias ls='eza --color=always --long --git'
+
+export BAT_THEME="Solarized (dark)"
+export MANPAGER="sh -c 'col -bx | $BAT -l man -p'"
+
 # fzf
-eval "$(fzf --zsh)"
+if [ `uname` = "Darwin" ]; then
+    eval "$(fzf --zsh)"
+else
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+    source /usr/share/doc/fzf/examples/completion.zsh
+fi
 
 fg="#CBE0F0"
 bg="#011628"
@@ -159,9 +178,9 @@ blue="#06BCE4"
 cyan="#2CF9ED"
 export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
 
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_DEFAULT_COMMAND="$FD --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_ALT_C_COMMAND="$FD --type=d --hidden --strip-cwd-prefix --exclude .git"
 
 _fzf_compgen_path() {
     fd --hidden --exclude .git . "$1"
@@ -171,8 +190,8 @@ _fzf_compgen_dir() {
     fd --type=d --hidden --exclude .git . "$1"
 }
 
-preview_file_cmd='bat -n --color=always --line-range :500 {}'
-preview_dir_cmd='eza --tree --level=1 --color=always {} | head -200'
+preview_file_cmd="$BAT -n --color=always --line-range :500 {}"
+preview_dir_cmd="eza --tree --level=1 --color=always {} | head -200"
 show_file_or_dir_preview="if [ -d {} ]; then $preview_dir_cmd; else $preview_file_cmd; fi"
 
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
@@ -189,18 +208,6 @@ _fzf_comprun() {
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
 }
-
-# tools
-export BAT_THEME="Solarized (dark)"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-if [ `uname` = "Darwin" ]; then
-    alias cat='bat --paging=never'
-    alias diff='delta'
-else
-    alias cat='batcat --paging=never'
-    alias diff='diff'
-fi
-alias ls='eza --color=always --long --git'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -16,7 +16,19 @@ if [ `uname` = "Darwin" ]; then
     brew install ripgrep
     brew install tldr
 elif [ `uname` = "Linux" ]; then
+    # set proxy
+    export http_proxy=http://192.168.119.1:1089 https_proxy=http://192.168.119.1:1089
+
     sudo apt-get install zsh
+
+    sudo apt-get install bat
+    sudo apt-get install fd-find 
+    sudo apt install fzf
+    sudo apt-get install ripgrep
+     
+    /bin/bash -c "$(curl -sSf https://sh.rustup.rs)"
+    cargo install eza
+    cargo install git-delta
 fi
 
 # change default shell -> zsh
