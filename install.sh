@@ -46,6 +46,9 @@ git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-m
 # install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+# install zsh-vi-mode
+git clone https://github.com/jeffreytse/zsh-vi-mode ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-vi-mode
+
 # link .zshrc configuration
 [ -e ".zshrc" ] && rm .zshrc
 ln -s .dotfile/.zshrc .zshrc 

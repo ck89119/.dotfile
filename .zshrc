@@ -60,6 +60,7 @@ POWERLEVEL9K_MODE="awesome-patched"
 plugins=(
     git
     zsh-syntax-highlighting
+    zsh-vi-mode
 )
 if [ `uname` = "Darwin" ]; then
     plugins+=(macos)
