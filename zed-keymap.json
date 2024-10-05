@@ -1,0 +1,53 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle",
+      "cmd-t": "terminal_panel::ToggleFocus",
+      "shift-escape": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "cmd-left": "pane::ActivatePrevItem",
+      "cmd-right": "pane::ActivateNextItem",
+      "shift-escape": null
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-t": "workspace::ToggleBottomDock",
+      "cmd-n": "workspace::NewTerminal",
+      "shift-escape": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "space h": ["vim::MoveToNext", { "partialWord": true }]
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "f2": "editor::GoToDiagnostic",
+      "shift-f2": "editor::GoToPrevDiagnostic",
+      "f3": "editor::GoToHunk",
+      "shift-f3": "editor::GoToPrevHunk"
+    }
+  }
+]

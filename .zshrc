@@ -14,7 +14,6 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_MODE="awesome-patched"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -94,9 +93,9 @@ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/.dotfile/include
 # fi
 
 # llvm
-export PATH="/opt/homebrew/opt/llvm@16/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/llvm@16/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm@16/include"
+export PATH="$BREW_PREFIX/opt/llvm@16/bin:$PATH"
+export LDFLAGS="-L$BREW_PREFIX/opt/llvm@16/lib"
+export CPPFLAGS="-I$BREW_PREFIX/opt/llvm@16/include"
 
 # python
 export PATH=$PATH:$BREW_PREFIX/opt/python/libexec/bin

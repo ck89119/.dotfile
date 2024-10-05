@@ -23,3 +23,5 @@ compile_commands.json
 .gitconfig
 
 mo-data-bak/
+.zed/
+.cache/
