@@ -1,0 +1,8 @@
+# Rime user dictionary
+#@/db_name	luna_pinyin
+#@/db_type	userdb
+#@/rime_version	1.11.2
+#@/tick	2
+#@/user_id	740c428e-de05-454d-bb9f-fb565dbed67b
+pei zhi 	配置	c=1 d=1 t=2
+shu ru fa 	輸入法	c=1 d=0.995012 t=2

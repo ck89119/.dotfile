@@ -1,0 +1,10 @@
+# Rime user dictionary
+#@/db_name	rime_ice
+#@/db_type	userdb
+#@/rime_version	1.11.2
+#@/tick	4
+#@/user_id	740c428e-de05-454d-bb9f-fb565dbed67b
+cheng dan 	承担	c=1 d=1 t=4
+lan 	栏	c=1 d=1 t=4
+yuan 	原	c=1 d=1 t=3
+zi mu 	字母	c=1 d=1 t=2

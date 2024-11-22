@@ -161,7 +161,7 @@ else
 fi
 alias cat='bat --paging=never'
 alias diff='delta'
-alias ls='eza --color=always --long --git'
+alias ls='eza --color=always --long --git --binary'
 
 export BAT_THEME="Solarized (dark)"
 export MANPAGER="sh -c 'col -bx | $BAT -l man -p'"
