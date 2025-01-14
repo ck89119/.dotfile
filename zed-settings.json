@@ -27,6 +27,10 @@
     "light": "One Light",
     "dark": "Tokyo Night Storm"
   },
+
+  "terminal": {
+    "font_size": 13
+  },
   "lsp": {
     "clangd": {
       "binary": {

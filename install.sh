@@ -15,12 +15,13 @@ if [ `uname` = "Darwin" ]; then
     brew install git-delta
     brew install ripgrep
     brew install tldr
+    brew install zoxide
 elif [ `uname` = "Linux" ]; then
     # set proxy
     export http_proxy=http://192.168.119.1:1089 https_proxy=http://192.168.119.1:1089
 
+    sudo apt-get install build-essential
     sudo apt-get install zsh
-
     sudo apt-get install bat
     sudo apt-get install fd-find 
     sudo apt install fzf
@@ -29,6 +30,7 @@ elif [ `uname` = "Linux" ]; then
     /bin/bash -c "$(curl -sSf https://sh.rustup.rs)"
     cargo install eza
     cargo install git-delta
+    cargo install zoxide --locked
 fi
 
 # change default shell -> zsh
@@ -61,7 +63,7 @@ ln -s .dotfile/.ideavimrc .ideavimrc
 [ -e ".gitconfig" ] && rm .gitconfig
 ln -s .dotfile/.gitconfig .gitconfig
 
-git clone https://github.com/Karmenzind/monaco-nerd-fonts fonts/monaco-nerd-fonts
+git clone https://github.com/Karmenzind/monaco-nerd-fonts .dotfile/fonts/monaco-nerd-fonts
 
 # install my vimrc
 /bin/bash -c "$(curl -fsSL https://raw.github.com/ck89119/.vim/master/auto-install.sh)"

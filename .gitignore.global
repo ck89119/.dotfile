@@ -25,3 +25,6 @@ compile_commands.json
 mo-data-bak/
 .zed/
 .cache/
+
+# rime
+Rime/rime_ice.userdb/
