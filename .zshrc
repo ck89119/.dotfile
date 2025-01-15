@@ -149,7 +149,7 @@ export PATH=$PATH:$BREW_PREFIX/Cellar/riscv-gnu-toolchain/bin
 # tidb
 export PATH=/Users/LoveYY/.tiup/bin:$PATH
 
-# tools
+# bat, fd, delta, eza
 if [ `uname` = "Darwin" ]; then
     BAT='bat'
     FD='fd'
@@ -165,6 +165,7 @@ alias ls='eza --color=always --long --git --binary'
 
 export BAT_THEME="Solarized (dark)"
 export MANPAGER="sh -c 'col -bx | $BAT -l man -p'"
+export EZA_CONFIG_DIR=$HOME/.dotfile/eza
 
 # fzf
 if [ `uname` = "Darwin" ]; then
