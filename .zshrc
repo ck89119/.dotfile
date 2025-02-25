@@ -130,7 +130,7 @@ export LC_ALL=en_US.UTF-8
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # alias emacs=emacsclient
-alias tmux='tmux -2'
+# alias tmux='tmux -2'
 
 # vscode
 export PATH=$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
@@ -147,7 +147,7 @@ fi
 export PATH=$PATH:$BREW_PREFIX/Cellar/riscv-gnu-toolchain/bin
 
 # tidb
-export PATH=/Users/LoveYY/.tiup/bin:$PATH
+export PATH=$HOME/.tiup/bin:$PATH
 
 # bat, fd, delta, eza
 if [ `uname` = "Darwin" ]; then

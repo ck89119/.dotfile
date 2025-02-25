@@ -23,10 +23,10 @@ elif [ `uname` = "Linux" ]; then
     sudo apt-get install build-essential
     sudo apt-get install zsh
     sudo apt-get install bat
-    sudo apt-get install fd-find 
+    sudo apt-get install fd-find
     sudo apt install fzf
     sudo apt-get install ripgrep
-     
+
     /bin/bash -c "$(curl -sSf https://sh.rustup.rs)"
     cargo install eza
     cargo install git-delta
@@ -51,18 +51,28 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # install zsh-vi-mode
 git clone https://github.com/jeffreytse/zsh-vi-mode ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-vi-mode
 
+# install tmux conf
+git clone --single-branch https://github.com/gpakosz/.tmux.git
+
 # link .zshrc configuration
 [ -e ".zshrc" ] && rm .zshrc
-ln -s .dotfile/.zshrc .zshrc 
+ln -s -f .dotfile/.zshrc
 
 # link .ideavimrc
 [ -e ".ideavimrc" ] && rm .ideavimrc
-ln -s .dotfile/.ideavimrc .ideavimrc
+ln -s -f .dotfile/.ideavimrc
 
 # link git configuration
 [ -e ".gitconfig" ] && rm .gitconfig
-ln -s .dotfile/.gitconfig .gitconfig
+ln -s -f .dotfile/.gitconfig
 
+# link tmux configuration
+[ -e ".tmux.conf" ] && rm .tmux.conf
+ln -s -f .tmux/.tmux.conf
+[ -e ".tmux.conf.local" ] && rm .tmux.conf.local
+ln -s -f .dotfile/.tmux.conf.local
+
+# fonts
 git clone https://github.com/Karmenzind/monaco-nerd-fonts .dotfile/fonts/monaco-nerd-fonts
 
 # install my vimrc
