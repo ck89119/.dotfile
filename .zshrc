@@ -149,6 +149,9 @@ export PATH=$PATH:$BREW_PREFIX/Cellar/riscv-gnu-toolchain/bin
 # tidb
 export PATH=$HOME/.tiup/bin:$PATH
 
+# mysql
+export PATH=$BREW_PREFIX/opt/mysql@8.4/bin:$PATH
+
 # bat, fd, delta, eza
 if [ `uname` = "Darwin" ]; then
     BAT='bat'
