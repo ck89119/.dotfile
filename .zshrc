@@ -97,13 +97,21 @@ export PATH="$BREW_PREFIX/opt/llvm@16/bin:$PATH"
 export LDFLAGS="-L$BREW_PREFIX/opt/llvm@16/lib"
 export CPPFLAGS="-I$BREW_PREFIX/opt/llvm@16/include"
 
+# cgo
+export CGO_CFLAGS=-I/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/include
+export CGO_LDFLAGS="-L/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/lib -Wl,-rpath,/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/lib"
+
 # python
 export PATH=$PATH:$BREW_PREFIX/opt/python/libexec/bin
+# pipx
+export PATH=$HOME/.local/bin:$PATH
 
 # java
 if [ `uname` = "Darwin" ]; then
     JAVA_VERSION='1.8.0_333'
     export JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION)
+    # export JAVA_HOME="$BREW_PREFIX/opt/openjdk@11"
+    # export PATH="$JAVA_HOME/bin:$PATH"
 fi
 
 # rust
@@ -218,6 +226,16 @@ _fzf_comprun() {
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
