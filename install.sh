@@ -14,7 +14,7 @@ if [ `uname` = "Darwin" ]; then
     brew install fzf
     brew install git-delta
     brew install ripgrep
-    brew install tldr
+    brew install tlrc
     brew install zoxide
 elif [ `uname` = "Linux" ]; then
     # set proxy

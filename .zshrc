@@ -77,7 +77,7 @@ else
 fi
 
 # default path
-export PATH="$BREW_PREFIX/bin:$BREW_PREFIX/sbin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+export PATH="$BREW_PREFIX/bin:$BREW_PREFIX/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 # go
 export GOROOT=$BREW_PREFIX/opt/go/libexec
@@ -91,11 +91,6 @@ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/.dotfile/include
 #     alias g++='clang++'
 #     alias clang++='clang++ -std=c++17'
 # fi
-
-# llvm
-export PATH="$BREW_PREFIX/opt/llvm@16/bin:$PATH"
-export LDFLAGS="-L$BREW_PREFIX/opt/llvm@16/lib"
-export CPPFLAGS="-I$BREW_PREFIX/opt/llvm@16/include"
 
 # cgo
 export CGO_CFLAGS=-I/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/include
@@ -137,9 +132,6 @@ export LC_ALL=en_US.UTF-8
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# alias emacs=emacsclient
-# alias tmux='tmux -2'
-
 # vscode
 export PATH=$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 
@@ -159,6 +151,9 @@ export PATH=$HOME/.tiup/bin:$PATH
 
 # mysql
 export PATH=$BREW_PREFIX/opt/mysql@8.4/bin:$PATH
+
+# bison
+export PATH=$BREW_PREFIX/opt/bison/bin:$PATH
 
 # bat, fd, delta, eza
 if [ `uname` = "Darwin" ]; then
