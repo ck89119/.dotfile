@@ -430,8 +430,8 @@ speller:
     # - derive/an$/ang/
     - derive/eng$/en/
     - derive/en$/eng/
-    - derive/in$/ing/
     - derive/ing$/in/
+    - derive/in$/ing/
     # - derive/ian$/iang/
     # - derive/iang$/ian/
     # - derive/uan$/uang/
