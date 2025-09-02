@@ -79,11 +79,20 @@ fi
 # default path
 export PATH="$BREW_PREFIX/bin:$BREW_PREFIX/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
+
+# --------------------------------
+# config of programming languages
+# --------------------------------
+#
 # go
 export GOROOT=$BREW_PREFIX/opt/go/libexec
 export GOPATH=$HOME/Develop/go
 export GOPROXY=https://goproxy.cn
+export GOPRIVATE="github.com/matrixone-cloud/*,github.com/matrixorigin/*"
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+# cgo
+export CGO_CFLAGS=-I/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/include
+export CGO_LDFLAGS="-L/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/lib -Wl,-rpath,/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/lib"
 
 # cpp
 export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/.dotfile/include
@@ -91,10 +100,6 @@ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/.dotfile/include
 #     alias g++='clang++'
 #     alias clang++='clang++ -std=c++17'
 # fi
-
-# cgo
-export CGO_CFLAGS=-I/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/include
-export CGO_LDFLAGS="-L/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/lib -Wl,-rpath,/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/lib"
 
 # python
 export PATH=$PATH:$BREW_PREFIX/opt/python/libexec/bin
@@ -134,17 +139,13 @@ export LC_ALL=en_US.UTF-8
 
 # vscode
 export PATH=$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
-
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+# export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # bindkey
 if [ `uname` = "Linux" ]; then
     bindkey "^[[1;3C" forward-word
     bindkey "^[[1;3D" backward-word
 fi
-
-# riscv-gnu-toolchain
-export PATH=$PATH:$BREW_PREFIX/Cellar/riscv-gnu-toolchain/bin
 
 # tidb
 export PATH=$HOME/.tiup/bin:$PATH
@@ -155,6 +156,11 @@ export PATH=$BREW_PREFIX/opt/mysql@8.4/bin:$PATH
 # bison
 export PATH=$BREW_PREFIX/opt/bison/bin:$PATH
 
+
+# --------------------------------
+# config of command line tools
+# --------------------------------
+#
 # bat, fd, delta, eza
 if [ `uname` = "Darwin" ]; then
     BAT='bat'
@@ -231,6 +237,10 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# zellij
+# eval "$(zellij setup --generate-completion zsh)"
+alias zj=zellij
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

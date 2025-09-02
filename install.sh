@@ -15,6 +15,7 @@ if [ `uname` = "Darwin" ]; then
     brew install git-delta
     brew install ripgrep
     brew install tlrc
+    brew install zellij
     brew install zoxide
 elif [ `uname` = "Linux" ]; then
     # set proxy
@@ -30,6 +31,7 @@ elif [ `uname` = "Linux" ]; then
     /bin/bash -c "$(curl -sSf https://sh.rustup.rs)"
     cargo install eza
     cargo install git-delta
+    cargo install zellij --locked
     cargo install zoxide --locked
 fi
 
@@ -71,6 +73,11 @@ ln -s -f .dotfile/.gitconfig
 ln -s -f .tmux/.tmux.conf
 [ -e ".tmux.conf.local" ] && rm .tmux.conf.local
 ln -s -f .dotfile/.tmux.conf.local
+
+# link zellij
+cd .config/zellij
+[ -e "config.kdl" ] && rm config.kdl
+ln -s ~/.dotfile/zellij-config.kdl config.kdl
 
 # fonts
 git clone https://github.com/Karmenzind/monaco-nerd-fonts .dotfile/fonts/monaco-nerd-fonts

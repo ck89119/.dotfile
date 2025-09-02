@@ -46,6 +46,3 @@ xnoremap p "_dP
 
 " easymotion plugin
 set easymotion
-
-" IdeaVimExtension
-set keep-english-in-normal
