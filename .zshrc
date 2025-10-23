@@ -156,7 +156,6 @@ export PATH=$BREW_PREFIX/opt/mysql@8.4/bin:$PATH
 # bison
 export PATH=$BREW_PREFIX/opt/bison/bin:$PATH
 
-
 # --------------------------------
 # config of command line tools
 # --------------------------------

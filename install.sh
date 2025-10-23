@@ -7,7 +7,8 @@ if [ `uname` = "Darwin" ]; then
 
     # install homebrew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
+    
+    # command line in rust
     brew install bat
     brew install eza
     brew install fd
@@ -17,6 +18,9 @@ if [ `uname` = "Darwin" ]; then
     brew install tlrc
     brew install zellij
     brew install zoxide
+    
+    # install alacritty
+    brew install alacritty
 elif [ `uname` = "Linux" ]; then
     # set proxy
     export http_proxy=http://192.168.119.1:1089 https_proxy=http://192.168.119.1:1089
@@ -53,8 +57,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # install zsh-vi-mode
 git clone https://github.com/jeffreytse/zsh-vi-mode ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-vi-mode
 
-# install tmux conf
-git clone --single-branch https://github.com/gpakosz/.tmux.git
+# fonts
+git clone https://github.com/Karmenzind/monaco-nerd-fonts .dotfile/fonts/monaco-nerd-fonts
 
 # link .zshrc configuration
 [ -e ".zshrc" ] && rm .zshrc
@@ -68,19 +72,15 @@ ln -s -f .dotfile/.ideavimrc
 [ -e ".gitconfig" ] && rm .gitconfig
 ln -s -f .dotfile/.gitconfig
 
-# link tmux configuration
-[ -e ".tmux.conf" ] && rm .tmux.conf
-ln -s -f .tmux/.tmux.conf
-[ -e ".tmux.conf.local" ] && rm .tmux.conf.local
-ln -s -f .dotfile/.tmux.conf.local
-
 # link zellij
-cd .config/zellij
+cd ~/.config/zellij
 [ -e "config.kdl" ] && rm config.kdl
 ln -s ~/.dotfile/zellij-config.kdl config.kdl
 
-# fonts
-git clone https://github.com/Karmenzind/monaco-nerd-fonts .dotfile/fonts/monaco-nerd-fonts
+# link alacritty
+cd ~/.config
+[ -e "alacritty" ] && rm -rf alacritty 
+ln -s ~/.dotfile/alacritty .
 
 # install my vimrc
 /bin/bash -c "$(curl -fsSL https://raw.github.com/ck89119/.vim/master/auto-install.sh)"
