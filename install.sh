@@ -1,42 +1,43 @@
 #!/bin/sh
 
 # if mac os
-if [ `uname` = "Darwin" ]; then
-    # set proxy
-    export http_proxy=http://127.0.0.1:1089 https_proxy=http://127.0.0.1:1089
+if [ $(uname) = "Darwin" ]; then
+  # set proxy
+  export http_proxy=http://127.0.0.1:1089 https_proxy=http://127.0.0.1:1089
 
-    # install homebrew
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    
-    # command line in rust
-    brew install bat
-    brew install eza
-    brew install fd
-    brew install fzf
-    brew install git-delta
-    brew install ripgrep
-    brew install tlrc
-    brew install zellij
-    brew install zoxide
-    
-    # install alacritty
-    brew install alacritty
-elif [ `uname` = "Linux" ]; then
-    # set proxy
-    export http_proxy=http://192.168.119.1:1089 https_proxy=http://192.168.119.1:1089
+  # install homebrew
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    sudo apt-get install build-essential
-    sudo apt-get install zsh
-    sudo apt-get install bat
-    sudo apt-get install fd-find
-    sudo apt install fzf
-    sudo apt-get install ripgrep
+  # command line in rust
+  brew install bat
+  brew install eza
+  brew install fd
+  brew install fzf
+  brew install git-delta
+  brew install ripgrep
+  brew install tlrc
+  brew install zellij
+  brew install zoxide
 
-    /bin/bash -c "$(curl -sSf https://sh.rustup.rs)"
-    cargo install eza
-    cargo install git-delta
-    cargo install zellij --locked
-    cargo install zoxide --locked
+  # tools
+  brew install alacritty
+  brew install nvim
+elif [ $(uname) = "Linux" ]; then
+  # set proxy
+  export http_proxy=http://192.168.119.1:1089 https_proxy=http://192.168.119.1:1089
+
+  sudo apt-get install build-essential
+  sudo apt-get install zsh
+  sudo apt-get install bat
+  sudo apt-get install fd-find
+  sudo apt install fzf
+  sudo apt-get install ripgrep
+
+  /bin/bash -c "$(curl -sSf https://sh.rustup.rs)"
+  cargo install eza
+  cargo install git-delta
+  cargo install zellij --locked
+  cargo install zoxide --locked
 fi
 
 # change default shell -> zsh
@@ -73,14 +74,26 @@ ln -s -f .dotfile/.ideavimrc
 ln -s -f .dotfile/.gitconfig
 
 # link zellij
-cd ~/.config/zellij
-[ -e "config.kdl" ] && rm config.kdl
-ln -s ~/.dotfile/zellij-config.kdl config.kdl
+cd ~/.config
+[ -e "zellij" ] && rm zellij
+ln -s ~/.dotfile/zellij .
 
 # link alacritty
 cd ~/.config
-[ -e "alacritty" ] && rm -rf alacritty 
+[ -e "alacritty" ] && rm -rf alacritty
 ln -s ~/.dotfile/alacritty .
 
-# install my vimrc
-/bin/bash -c "$(curl -fsSL https://raw.github.com/ck89119/.vim/master/auto-install.sh)"
+# link zed
+cd ~/.config/zed
+[ -e "keymap.json" ] && rm -rf keymap.json
+ln -s ~/.dotfile/zed/keymap.json .
+[ -e "settings.json" ] && rm -rf settings.json
+ln -s ~/.dotfile/zed/settings.json .
+
+# link nvim
+cd ~/.config
+[ -e "nvim" ] && rm -rf nvim
+ln -s ~/.dotfile/nvim .
+
+# # install my vimrc
+# /bin/bash -c "$(curl -fsSL https://raw.github.com/ck89119/.vim/master/auto-install.sh)"
