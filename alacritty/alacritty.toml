@@ -10,6 +10,7 @@ size = 13.0
 
 [font.normal]
 family = "Monaco Nerd Font Mono"
+# family = "Cascadia Mono NF"
 style = "Regular"
 
 [font.bold]
@@ -53,6 +54,7 @@ dynamic_title = true
 opacity = 1.0
 title = "Alacritty"
 option_as_alt = "Both"
+startup_mode = "Fullscreen"
 
 [window.class]
 general = "Alacritty"
