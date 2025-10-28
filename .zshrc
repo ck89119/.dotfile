@@ -124,6 +124,13 @@ export TERM="xterm-256color"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# bindkey
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
+# nvim
+alias vim='nvim'
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -139,13 +146,6 @@ export LC_ALL=en_US.UTF-8
 
 # vscode
 export PATH=$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
-# export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-# bindkey
-if [ `uname` = "Linux" ]; then
-    bindkey "^[[1;3C" forward-word
-    bindkey "^[[1;3D" backward-word
-fi
 
 # tidb
 export PATH=$HOME/.tiup/bin:$PATH
