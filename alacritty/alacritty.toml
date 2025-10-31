@@ -75,15 +75,15 @@ persist = false
 regex = "(https?://[^\"]+)"
 
 # ⌨️ Keybindings
-# [[keyboard.bindings]]
-# action = "Paste"
-# key = "Y"
-# mods = "Control"
-
-# [[keyboard.bindings]]
-# action = "Copy"
-# key = "W"
-# mods = "Alt"
+# Disable new tab
+[[keyboard.bindings]]
+action = "None"
+key = "T"
+mods = "Command"
+[[keyboard.bindings]]
+action = "None"
+key = "N"
+mods = "Command"
 
 # 🐚 Default shell
 [terminal.shell]
