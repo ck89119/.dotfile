@@ -1,6 +1,14 @@
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
-if true then return {} end
+if true then return {
+  -- {
+  --   'nvim-mini/mini.pairs',
+  --   enabled = false,  -- 添加这一行
+  --   config = function()
+  --     require('mini.pairs').setup()
+  --   end,
+  -- }
+} end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
 --

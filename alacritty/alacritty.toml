@@ -84,6 +84,10 @@ mods = "Command"
 action = "None"
 key = "N"
 mods = "Command"
+[[keyboard.bindings]]
+action = "None"
+key = "W"
+mods = "Command"
 
 # 🐚 Default shell
 [terminal.shell]
