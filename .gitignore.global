@@ -1,31 +1,37 @@
 .DS_Store
-
 .ssh/
-*.pyc
-*.o
-*.swp
-a.out
-.ropeproject
-bin/
-
-.gradle/
-build/
-out/
-*.iml
+.cache/
 info.log
 nohup.out
-.ycm_extra_conf.py
 
-mo-data-bak/
-.zed/
-.cache/
+# compile
+*.pyc
+*.o
+a.out
+bin/
+build/
+out/
+.gradle/
+
+# virtual env
+.venv/
+venv/
+
+# vim
+*.swp
+.ycm_extra_conf.py
 
 # jetbrains
 .idea/
+*.iml
+.ropeproject
 
 # vscode
 .vscode/
 compile_commands.json
+
+# zed
+.zed/
 
 # rime
 Rime/rime_ice.userdb/
@@ -36,8 +42,11 @@ thirdparties/StringZilla-3.11.3/
 thirdparties/fp16/
 thirdparties/install/
 thirdparties/usearch-2.17.1/
+mo-data-bak/
+moi-frontend
 
 # AI tools
 CLAUDE.md
-.claude
+CLAUDE.local.md
+.claude/
 GEMINI.md

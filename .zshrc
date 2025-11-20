@@ -109,9 +109,9 @@ export PATH=$HOME/.local/bin:$PATH
 # java
 if [ `uname` = "Darwin" ]; then
     JAVA_VERSION='1.8.0_333'
+    # JAVA_VERSION='23.0.2'
     export JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION)
-    # export JAVA_HOME="$BREW_PREFIX/opt/openjdk@11"
-    # export PATH="$JAVA_HOME/bin:$PATH"
+    export PATH="$JAVA_HOME/bin:$PATH"
 fi
 
 # rust

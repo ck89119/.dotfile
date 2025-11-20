@@ -75,7 +75,7 @@ persist = false
 regex = "(https?://[^\"]+)"
 
 # ⌨️ Keybindings
-# Disable new tab
+# Disable new tab / close tab
 [[keyboard.bindings]]
 action = "None"
 key = "T"
@@ -89,6 +89,15 @@ action = "None"
 key = "W"
 mods = "Command"
 
+[[keyboard.bindings]]
+key = "Left"
+mods = "Alt"
+chars = "\u001bb"
+[[keyboard.bindings]]
+key = "Right"
+mods = "Alt"
+chars = "\u001bf"
 # 🐚 Default shell
+
 [terminal.shell]
 program = "/opt/homebrew/bin/zsh"
