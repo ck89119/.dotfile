@@ -58,8 +58,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
     git
+    # gnu-utils
+    tldr
     zsh-syntax-highlighting
-    # zsh-vi-mode
 )
 if [ `uname` = "Darwin" ]; then
     plugins+=(macos)
@@ -103,6 +104,7 @@ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/.dotfile/include
 
 # python
 export PATH=$PATH:$BREW_PREFIX/opt/python/libexec/bin
+export env='local'
 # pipx
 export PATH=$HOME/.local/bin:$PATH
 
@@ -125,8 +127,8 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # bindkey
-bindkey "^[[1;3C" forward-word
-bindkey "^[[1;3D" backward-word
+# bindkey "^[[1;3C" forward-word
+# bindkey "^[[1;3D" backward-word
 
 # nvim
 alias vim='nvim'
@@ -155,6 +157,9 @@ export PATH=$BREW_PREFIX/opt/mysql@8.4/bin:$PATH
 
 # bison
 export PATH=$BREW_PREFIX/opt/bison/bin:$PATH
+
+# kubectl
+alias k='kubectl -n mo-pl'
 
 # --------------------------------
 # config of command line tools

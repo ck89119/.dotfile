@@ -15,7 +15,7 @@ patch:
     com.jetbrains.datagrip:
       ascii_mode: true
       vim_mode: true
-    com.googlecode.iterm2:
+    org.alacritty:
       ascii_mode: true
       vim_mode: true
     md.obsidian:

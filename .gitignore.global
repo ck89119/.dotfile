@@ -47,6 +47,6 @@ moi-frontend
 
 # AI tools
 CLAUDE.md
-CLAUDE.local.md
+CLAUDE_TODO_*.md
 .claude/
 GEMINI.md
