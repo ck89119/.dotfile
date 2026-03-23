@@ -1,5 +1,8 @@
 return {
   "saghen/blink.cmp",
+  dependencies = {
+    "rafamadriz/friendly-snippets", -- 提供代码片段库
+  },
   opts = {
     -- 核心配置：控制补全菜单的行为
     completion = {
@@ -24,7 +27,7 @@ return {
 
       -- 模拟 YCM：回车只负责换行，不触发补全确认
       -- 如果你习惯回车确认，可以改为 { "accept", "fallback" }
-      ["<CR>"] = { "fallback" },
+      ["<CR>"] = { "accept", "fallback" },
 
       -- 即使在 auto_insert 模式下，有时也需要手动取消或显示
       ["<C-e>"] = { "hide" },

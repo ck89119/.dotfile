@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# if mac os
+# install command-line tools, terminal && editor
 if [ $(uname) = "Darwin" ]; then
   # set proxy
   export http_proxy=http://127.0.0.1:1089 https_proxy=http://127.0.0.1:1089
@@ -22,6 +22,8 @@ if [ $(uname) = "Darwin" ]; then
   # tools
   brew install alacritty
   brew install nvim
+  brew install squirrel-app
+
 elif [ $(uname) = "Linux" ]; then
   # set proxy
   export http_proxy=http://192.168.119.1:1089 https_proxy=http://192.168.119.1:1089
@@ -94,6 +96,11 @@ ln -s ~/.dotfile/zed/settings.json .
 cd ~/.config
 [ -e "nvim" ] && rm -rf nvim
 ln -s ~/.dotfile/nvim .
+
+# link rime
+cd ~/Library
+[ -e "Rime" ] && rm -rf Rime
+ln -s ~/.dotfile/Rime .
 
 # # install my vimrc
 # /bin/bash -c "$(curl -fsSL https://raw.github.com/ck89119/.vim/master/auto-install.sh)"

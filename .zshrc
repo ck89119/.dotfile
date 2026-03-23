@@ -60,6 +60,7 @@ plugins=(
     # gnu-utils
     tldr
     zsh-syntax-highlighting
+    zsh-vi-mode
 )
 if [ `uname` = "Darwin" ]; then
     plugins+=(macos)
@@ -125,9 +126,47 @@ export TERM="xterm-256color"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# bindkey
-# bindkey "^[[1;3C" forward-word
-# bindkey "^[[1;3D" backward-word
+# zsh-vi-mode
+function zvm_after_init() {
+  # 确保这两个组件已加载（防止某些环境下报错）
+  autoload -U up-line-or-beginning-search
+  autoload -U down-line-or-beginning-search
+  zle -N up-line-or-beginning-search
+  zle -N down-line-or-beginning-search
+
+  # 将 k 和 j 绑定到你方向键同款的功能上
+  zvm_bindkey vicmd 'k' up-line-or-beginning-search
+  zvm_bindkey vicmd 'j' down-line-or-beginning-search
+
+  # 保持之前的 fzf 配置
+  zvm_bindkey viins '^R' fzf-history-widget
+}
+
+function zvm_after_lazy_keybindings() {
+  # --- Visual Mode 模式下的 y ---
+  my_zvm_visual_yank() {
+    zle zvm_vi_yank      # 必须加 zle
+    printf "%s" "$CUTBUFFER" | pbcopy
+  }
+  zle -N my_zvm_visual_yank
+  zvm_bindkey visual 'y' my_zvm_visual_yank
+
+  # --- Normal Mode 模式下的 yy (复制整行) ---
+  my_zvm_yank_line() {
+    zle vi-yank-whole-line  # 调用原生 Zsh 复制整行部件
+    printf "%s" "$CUTBUFFER" | pbcopy
+  }
+  zle -N my_zvm_yank_line
+  zvm_bindkey vicmd 'yy' my_zvm_yank_line
+
+  # --- Normal Mode 模式下的 p (从系统粘贴) ---
+  my_zvm_paste() {
+    CUTBUFFER=$(pbpaste)
+    zle zvm_vi_put_after
+  }
+  zle -N my_zvm_paste
+  zvm_bindkey vicmd 'p' my_zvm_paste
+}
 
 # nvim
 alias vim='nvim'
@@ -159,6 +198,12 @@ export PATH=$BREW_PREFIX/opt/bison/bin:$PATH
 
 # kubectl
 alias k='kubectl -n mo-pl'
+
+# proxy
+export_proxy="export http_proxy=http://127.0.0.1:1089 https_proxy=http://127.0.0.1:1089 ALL_PROXY=socks5://127.0.0.1:1089"
+alias brew=$export_proxy" && brew"
+alias claude=$export_proxy" && claude"
+alias tldr=$export_proxy" && tldr"
 
 # --------------------------------
 # config of command line tools
@@ -248,3 +293,6 @@ alias zj=zellij
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+# opencode
+export PATH=/Users/LoveYY/.opencode/bin:$PATH

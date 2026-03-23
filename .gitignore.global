@@ -37,16 +37,13 @@ compile_commands.json
 Rime/rime_ice.userdb/
 
 # mo
-thirdparties/SimSIMD-6.2.3/
-thirdparties/StringZilla-3.11.3/
-thirdparties/fp16/
-thirdparties/install/
-thirdparties/usearch-2.17.1/
 mo-data-bak/
-moi-frontend
+mo-service.log
+mo.log
 
 # AI tools
-CLAUDE.md
-CLAUDE_TODO_*.md
+CLAUDE*.md
 .claude/
-GEMINI.md
+GEMINI*.md
+.kiro/
+copilot-instructions.md
