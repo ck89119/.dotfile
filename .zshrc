@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -12,7 +12,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME=""
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -66,66 +67,6 @@ if [ `uname` = "Darwin" ]; then
     plugins+=(macos)
 fi
 
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# brew
-if [ `arch` = "arm64" ]; then
-    export BREW_PREFIX=/opt/homebrew
-else
-    export BREW_PREFIX=/usr/local
-fi
-
-# default path
-export PATH="$BREW_PREFIX/bin:$BREW_PREFIX/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-
-
-# --------------------------------
-# config of programming languages
-# --------------------------------
-#
-# go
-export GOROOT=$BREW_PREFIX/opt/go/libexec
-export GOPATH=$HOME/Develop/go
-export GOPROXY=https://goproxy.cn
-export GOPRIVATE="github.com/matrixone-cloud/*,github.com/matrixorigin/*"
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-# cgo
-export CGO_CFLAGS=-I/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/include
-export CGO_LDFLAGS="-L/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/lib -Wl,-rpath,/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/lib"
-
-# cpp
-export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/.dotfile/include
-# if [ `uname` = "Darwin" ]; then
-#     alias g++='clang++'
-#     alias clang++='clang++ -std=c++17'
-# fi
-
-# python
-export PATH=$PATH:$BREW_PREFIX/opt/python/libexec/bin
-export env='local'
-# pipx
-export PATH=$HOME/.local/bin:$PATH
-
-# java
-if [ `uname` = "Darwin" ]; then
-    JAVA_VERSION='1.8.0_333'
-    # JAVA_VERSION='23.0.2'
-    export JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION)
-    export PATH="$JAVA_HOME/bin:$PATH"
-fi
-
-# rust
-export PATH=$PATH:$HOME/.cargo/bin
-
-export TERM="xterm-256color"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 # zsh-vi-mode
 function zvm_after_init() {
   # 确保这两个组件已加载（防止某些环境下报错）
@@ -168,6 +109,65 @@ function zvm_after_lazy_keybindings() {
   zvm_bindkey vicmd 'p' my_zvm_paste
 }
 
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# brew
+if [ `arch` = "arm64" ]; then
+    export BREW_PREFIX=/opt/homebrew
+else
+    export BREW_PREFIX=/usr/local
+fi
+
+# default path
+export PATH="$BREW_PREFIX/bin:$BREW_PREFIX/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+
+
+# --------------------------------
+# config of programming languages
+# --------------------------------
+#
+# go
+export GOROOT=$BREW_PREFIX/opt/go/libexec
+export GOPATH=$HOME/Develop/go
+export GOPROXY=https://goproxy.cn
+export GOPRIVATE="github.com/matrixone-cloud/*,github.com/matrixorigin/*"
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+# cgo
+export CGO_CFLAGS=-I/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/include
+export CGO_LDFLAGS="-L/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/lib -Wl,-rpath,/Users/LoveYY/Develop/matrixorigin/matrixone/thirdparties/install/lib"
+
+# cpp
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/.dotfile/include
+# if [ `uname` = "Darwin" ]; then
+#     alias g++='clang++'
+#     alias clang++='clang++ -std=c++17'
+# fi
+
+# python
+export PATH=$PATH:$BREW_PREFIX/opt/python/libexec/bin
+# pipx
+export PATH=$HOME/.local/bin:$PATH
+
+# java
+if [ `uname` = "Darwin" ]; then
+    JAVA_VERSION='1.8.0_333'
+    # JAVA_VERSION='23.0.2'
+    export JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION)
+    export PATH="$JAVA_HOME/bin:$PATH"
+fi
+
+# rust
+export PATH=$PATH:$HOME/.cargo/bin
+
+export TERM="xterm-256color"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # nvim
 alias vim='nvim'
 
@@ -202,8 +202,44 @@ alias k='kubectl -n mo-pl'
 # proxy
 export_proxy="export http_proxy=http://127.0.0.1:1089 https_proxy=http://127.0.0.1:1089 ALL_PROXY=socks5://127.0.0.1:1089"
 alias brew=$export_proxy" && brew"
-alias claude=$export_proxy" && claude"
 alias tldr=$export_proxy" && tldr"
+
+# code agent
+alias claude=$export_proxy" COLUMNS=100 && claude --dangerously-skip-permissions"
+alias codex=$export_proxy" && codex --yolo"
+alias copilot="copilot --allow-all"
+alias kimi="kimi --yolo"
+alias kimi-cli="kimi-cli --yolo"
+
+# opencode
+export PATH=/Users/LoveYY/.opencode/bin:$PATH
+
+# git worktree
+gwt-add() {
+  local branch=$1
+  local cur_path=`pwd`
+  local new_path=$(cd "$cur_path/.." && pwd)/$branch
+
+  /opt/homebrew/bin/git worktree add -B $branch $new_path
+
+  cd $new_path
+  /bin/ln -s $cur_path/CLAUDE.md .
+  /bin/ln -s $cur_path/AGENTS.md .
+  /bin/ln -s $cur_path/.claude .
+  /bin/ln -s $cur_path/.kiro .
+  /bin/ln -s $cur_path/.mcp.json .
+
+  echo "Worktree created and Agent configs linked to $new_path"
+}
+
+gwt-remove() {
+  local branch=$1
+  local cur_path=`pwd`
+  local path=$cur_path/../$branch
+
+  /opt/homebrew/bin/git worktree remove $path
+  /opt/homebrew/bin/git branch -D $branch
+}
 
 # --------------------------------
 # config of command line tools
@@ -221,7 +257,8 @@ else
 fi
 alias cat='bat --paging=never'
 alias diff='delta'
-alias ls='eza --color=always --long --git --binary'
+# alias ls='eza --color=always --long --git --binary'
+alias ls='eza --long --git --binary'
 
 export BAT_THEME="Solarized (dark)"
 export MANPAGER="sh -c 'col -bx | $BAT -l man -p'"
@@ -291,8 +328,6 @@ function y() {
 alias zj=zellij
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-# opencode
-export PATH=/Users/LoveYY/.opencode/bin:$PATH
+eval "$(starship init zsh)"

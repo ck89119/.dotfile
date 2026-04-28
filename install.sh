@@ -23,6 +23,7 @@ if [ $(uname) = "Darwin" ]; then
   brew install alacritty
   brew install nvim
   brew install squirrel-app
+  brew install starship
 
 elif [ $(uname) = "Linux" ]; then
   # set proxy
@@ -51,8 +52,8 @@ cd ~
 [ -e ".oh-my-zsh" ] && rm -rf .oh-my-zsh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# install powerlevel10k
-git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# # install powerlevel10k
+# git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting

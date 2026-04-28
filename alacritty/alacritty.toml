@@ -1,6 +1,6 @@
 # 🎨 Theme
 [general]
-import = ["~/.config/alacritty/themes/tokyo-night-storm.toml"]
+import = ["~/.config/alacritty/themes/catppuccin-macchiato.toml"]
 live_config_reload = true
 
 # 🔤 Font settings

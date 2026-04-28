@@ -3,6 +3,7 @@
 .cache/
 info.log
 nohup.out
+.worktrees/
 
 # compile
 *.pyc
@@ -43,7 +44,9 @@ mo.log
 
 # AI tools
 CLAUDE*.md
-.claude/
+.claude
+.mcp.json
 GEMINI*.md
-.kiro/
+.kiro
 copilot-instructions.md
+AGENTS.md
